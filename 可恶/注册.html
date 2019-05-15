@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>邮箱注册页面</title>
+    <link rel="stylesheet" type="text/css" href="注册.css">
+
+</head>
+<body>
+<div class="contianer" >
+    <div class="header">
+<div class="header1" >
+    <img src="C:\Users\12280\Desktop\微博红岩作业\weibo.jpg" alt="kajima" width="150px" height="70px"></div>
+    <div class="header2">
+    <h1>邮箱注册</h1></div>
+</div>
+    <div class="content">
+        <div class="content1"></div>
+        <div class="content2"><br><br>
+            个人邮箱:<input type="text" placeholder="请输入您常用的邮箱">
+            <br>
+            <br><br>
+            输入密码:<input type="password" required="true" missingMessage="密码必须填写" name="passwd" id="pwd1"><br><br><br>
+            确认密码：<input type="password" required="true" missingMessage="密码必须填写"  name="passwd" id="pwd2" onkeyup="validate1()"/><span id="tishi"></span></input>
+            <br>
+            <script>
+                          function validate1() {
+                              var pwd1 = document.getElementById("pwd1").value;
+                              var pwd2 = document.getElementById("pwd2").value;
+                              if(pwd1 == pwd2) {
+                                  document.getElementById("tishi").innerHTML="<font color='green'>√</font>";
+                                  document.getElementById("submit").disabled = false;
+                              }
+                              else {
+                                  document.getElementById("tishi").innerHTML="<font color='red'>×</font>";
+                                document.getElementById("submit").disabled = true;
+                              }
+                          }
+                  </script><br><br>
+                输入验证码：<input type="text" id="input" size="5" />
+                <input type="button" id="checkCode" class="code" onclick="createCode()" />
+                <script>var code;   
+                    window.onload = function() {
+                        createCode();
+                    }
+                     
+                    function createCode() {
+                        code = "";
+                        var codeLength = 5;    
+                        var checkCode = document.getElementById("checkCode");
+                        var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R',
+                            'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');  
+                        for(var i = 0; i < codeLength; i++) {   
+                            var charIndex = Math.floor(Math.random() * 36);
+                            code += random[charIndex];    
+                        }
+                        checkCode.value = code;    
+                    }
+                    function validate() {
+                        var inputCode = document.getElementById("input").value.toUpperCase();          
+                        if(inputCode.length <= 0) { 
+                            alert("请输入验证码！"); 
+                        } else if(inputCode != code) { 
+                            alert("验证码输入错误！");   
+                            createCode();  
+                        } else {
+                            alert("注册成功");   
+                        }
+                    }</script>
+                <a href="#" onclick="createCode()">换一换</a><br><br>
+            <input type="submit" value="立即注册" style="background:lightsalmon"  onclick="validate()">
+        </div>  
+        <div style="float:left;width: 1px;height: 500px; background: #000;"></div> 
+    <div class="content3"> <br><br>微博帮助
+    <ul style="text-align: left">
+        <li><a href="#">微博注册帮助指南</a></li>
+        <li><a href="#">我也不知道</a></li>
+        <li><a href="#">微博不知道什么玩意</a></li>
+        <li><a href="#">嘻嘻嘿嘿</a></li>
+    </ul>
+    </div>  
+    <div class="content4"></div> 
+    </div>
+    <div class="bottom">其他东西</div>
+</div>
+    
+
+
+
+
+</body>
+</html>
